@@ -19,11 +19,11 @@ class Upload
   def filter_csv(csv_file)
     content = ""
     i = 0
-    File.each_line("./public/uploads/" + csv_file.to_s) do |line|
+    File.each_line("public/uploads/" + csv_file.to_s) do |line|
       content += line.gsub('"', "") + "\n" if i > 0
       i += 1
     end
-    File.write("./public/uploads/tmp.csv", content)
+    File.write("public/uploads/tmp.csv", content)
   end
 
   def parse_csv(csv_file)

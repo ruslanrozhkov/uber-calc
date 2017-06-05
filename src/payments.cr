@@ -17,7 +17,7 @@ module Payments
     upload = Upload.new
     filename = upload.save_file(env)
     upload.filter_csv(filename)
-    calculate = upload.parse_csv("./public/uploads/tmp.csv")
+    calculate = upload.parse_csv("public/uploads/tmp.csv")
     content = upload.result_in_html(calculate)
     render "src/views/upload.ecr", "src/views/layouts/layout.ecr"
   end
