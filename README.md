@@ -12,7 +12,7 @@ Clone or download this repository
 
 cd ./folder_with_app/
 
-crystal build --release src/payments.cr
+run: crystal build --release src/payments.cr
 
 run: ./payments
 
