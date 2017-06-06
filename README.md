@@ -1,6 +1,6 @@
 # payments
 
-TODO: Write a description here
+Calculate weekly revenue for uber drivers.
 
 ## Installation
 
