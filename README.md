@@ -11,10 +11,13 @@ Install Crystal language - https://crystal-lang.org/
 Clone or download this repository
 
 cd ./folder_with_app/
+
 crystal build --release src/payments.cr
+
 run: ./payments
 
 You should see some logs like these:
+
 [development] Kemal is ready to lead at http://0.0.0.0:3000
 
 Go to url http://0.0.0.0:3000
