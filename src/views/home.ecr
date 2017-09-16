@@ -9,8 +9,15 @@
   <div>
   <form action="/upload" method="post" enctype="multipart/form-data">
     <label class="control-label">Select CSV File</label>
-    <input name="csv_file" type="file" class="file" data-show-preview="false">
-    <button type="submit" class="btn btn-primary bnt-lg btn-block">Submit</button>
+    <input name="csv_file" type="file" class="btn-lg btn-block" data-show-preview="false">
+    <label class="control-label" for="exampleInputAmount">Amount (in percent)</label>
+    <div class="input-group">
+      <div class="input-group-addon">%</div>
+      <input type="text" name="percent" class="form-control input-lg" id="exampleInputAmount" placeholder="Amount in percent (by default 5)">
+      <div class="input-group-addon">1-100</div>
+    </div>
+    <label></label>
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Submit</button>
   </form>
   </div>
 </div>

@@ -1,6 +1,8 @@
 require "csv"
 
 class Upload
+  @percent = 5.0
+
   def save_file(env)
     file = env.params.files["csv_file"]
     filename = file.filename
@@ -14,6 +16,10 @@ class Upload
       end
     end
     filename
+  end
+
+  def set_percent(env)
+    @percent = env.params.body["percent"].to_f if !env.params.body["percent"].empty?
   end
 
   def filter_csv(csv_file)
@@ -43,22 +49,13 @@ class Upload
   end
 
   def payment_calculator(tarif, bonus, other, cash)
-    # puts "tarif: " + tarif.to_s
-    # puts "bonus: " + bonus.to_s
-    # puts "other: " + other.to_s
-    # puts "cash: " + cash.to_s
     total = tarif + bonus
-    # puts "total = tarif + bonus: " + total.to_s
     if other > 0
       total += other
-      #  puts "total +"
     else
       total -= (-other)
-      #  puts "total -"
     end
-    # puts "total: " + total.to_s
-    commission = (total / 10.to_f)
-    # puts "commission: " + commission.to_s
+    commission = (total * @percent / 100)
     {"total" => total, "commission" => commission, "pay" => (cash - commission)}
   end
 
